@@ -12,8 +12,9 @@ from sklearn.model_selection import cross_val_score
 from sklearn.pipeline import Pipeline
 import numpy as np
 from xgboost import XGBRegressor
-import pickle
+
 from sklearn.feature_selection import SelectKBest
+import joblib
 
 df=pd.read_csv('smartphones_cleaned_v6.csv')
 df=df[['brand_name','has_5g','processor_brand','battery_capacity','ram_capacity',"internal_memory",'price']]
@@ -54,7 +55,7 @@ pipe=Pipeline([
 ])
 
 pipe.fit(x_train,y_train)
-pickle.dump(pipe,open('pipe1.pkl','wb'))
+joblib.dump(pipe,open('pipe1.joblib','wb'))
 
 
 

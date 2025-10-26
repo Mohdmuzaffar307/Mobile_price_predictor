@@ -1,9 +1,13 @@
 import pandas as pd
-import pickle
+# import pickle
 import streamlit as st
 import numpy as np
+import joblib
+
+
+
 df=pd.read_csv("smartphones_cleaned_v6.csv",usecols=["brand_name","has_5g","processor_brand","battery_capacity","ram_capacity","internal_memory","price"])
-model=pickle.load(open("pipe1.pkl",'rb'))
+model=joblib.load(open("pipe1.joblib",'rb'))
 
 
 
